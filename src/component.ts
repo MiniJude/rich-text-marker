@@ -1,8 +1,8 @@
-import { defineComponent } from 'vue'
+// import { defineComponent } from 'vue'
 
-export const RichTextMarker = defineComponent({
-    name: 'RichTextMarker',
-    setup() {
-        return () => <div>RichTextMarker</div>
-    }
-})
+// export const RichTextMarker = defineComponent({
+//     name: 'RichTextMarker',
+//     setup() {
+//         return () => <div>RichTextMarker</div>
+//     }
+// })
