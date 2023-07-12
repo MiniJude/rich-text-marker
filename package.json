@@ -1,6 +1,6 @@
 {
   "name": "rich-text-marker",
-  "version": "1.0.5",
+  "version": "1.0.9",
   "author": "Jude",
   "description": "vue3划词高亮组件",
   "homepage": "https://github.com/MiniJude/richTextMarker#readme",
@@ -9,8 +9,8 @@
     "url": "git+https://github.com/MiniJude/richTextMarker.git"
   },
   "type": "module",
-  "types": "./src/index.d.ts",
-  "module": "./src/index.ts",
+  "types": "./dist/index.d.ts",
+  "module": "./dist/index.es.js",
   "license": "ISC",
   "keywords": [
     "richtext",
@@ -28,18 +28,20 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
     "vue": "^3.2.47"
   },
   "devDependencies": {
+    "@types/node": "^20.4.1",
     "@vitejs/plugin-vue": "^4.1.0",
     "@vitejs/plugin-vue-jsx": "^3.0.1",
     "less": "^4.1.3",
     "typescript": "^5.0.2",
     "vite": "^4.3.9",
+    "vite-plugin-dts": "^3.2.0",
     "vue-tsc": "^1.4.2"
   }
 }

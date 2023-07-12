@@ -5,6 +5,7 @@
 </template>
 <script lang="ts" setup>
 import { ref, nextTick } from 'vue'
+import '@/Toolbar/index.less'
 import useClickOrSelect, { OperateTypeEnum } from '@/hooks/useClickOrSelect';
 import useRecords from '@/hooks/useRecords';
 import useSelection from '@/hooks/useSelection';
@@ -114,3 +115,40 @@ function handleClick() {
     console.log('click')
 }
 </script>
+
+<style lang="less">
+.m_underline {
+  border-bottom: 2px solid blue;
+}
+
+[class*='m_comment-id-'] {
+  background-color: #ccd7fa;
+  cursor: pointer;
+}
+</style>
+
+<style lang="less" scoped>
+.rich_text_marker {
+  position: relative;
+  display: inline-block;
+  vertical-align: text-top;
+  padding-right: 50px;
+
+  p {
+    margin-bottom: 6px;
+  }
+
+  &:hover .clear {
+    opacity: 1;
+  }
+
+  .clear {
+    position: absolute;
+    top: 2px;
+    right: 10px;
+    cursor: pointer;
+    opacity: 0;
+    transition: all ease .3s;
+  }
+}
+</style>

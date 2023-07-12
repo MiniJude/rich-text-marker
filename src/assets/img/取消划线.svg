@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon/取消划线</title>
+    <g id="学生端" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon/取消划线">
+            <path d="M11.584,10.074 L13.278,11.239 L14,13 L12.7515528,13 L11.584,10.074 Z M5.043,5.577 L5.961,6.208 L5.16770186,8.17507003 L8.821,8.175 L10.197,9.121 L4.79503106,9.12184874 L3.2484472,13 L2,13 L5.043,5.577 Z M8.67080745,0 L11.959,8.021 L10.318,6.894 L8.03726708,1.20168067 L7.98136646,1.20168067 L6.69,4.399 L5.782,3.775 L7.32919255,0 L8.67080745,0 Z" id="形状结合" fill="#FFFFFF" fill-rule="nonzero"></path>
+            <line x1="1.04003422" y1="1.72739887" x2="15.3809702" y2="11.5103359" id="直线-6" stroke="#FFFFFF" stroke-linecap="square"></line>
+            <line x1="0.5" y1="15.5" x2="15.5" y2="15.5" id="直线-2" stroke="#FFFFFF" stroke-linecap="square"></line>
+        </g>
+    </g>
+</svg>

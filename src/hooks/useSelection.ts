@@ -1,4 +1,4 @@
-import { computed, nextTick, ref, Ref } from 'vue'
+import { computed, ref, Ref } from 'vue'
 import { type JSONContent, HTMLParser, JSONToHTML } from '@/utils/parser'
 import useDFS, { bfs } from '@/utils/useAst'
 import { hasAttrByNode, setAttrByNode, findFormulaNode } from '@/utils/domUtils'

@@ -46,7 +46,7 @@ class Toolbar {
     // 设置工具条选项
     this.toolbarElement.innerHTML = config.reduce((prev, curr) => {
       return prev + `<span class="rich_text_marker__toolbar__item">
-        <img src="${new URL(`../img/${curr}.svg`, import.meta.url)}">
+        <img src="${new URL(`../assets/img/${curr}.svg`, import.meta.url)}">
         <span>${curr}</span>
       </span>`
     }, '')

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="学生端" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="学生端终稿" transform="translate(-898.000000, -430.000000)">
+            <g id="编组-17" transform="translate(378.000000, 68.000000)">
+                <g id="编组-11" transform="translate(500.000000, 354.000000)">
+                    <g id="编组-9" transform="translate(16.000000, 8.000000)">
+                        <g id="划线" transform="translate(4.000000, 0.000000)">
+                            <g id="A" transform="translate(2.000000, 0.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                                <path d="M5.32919255,0 L0,13 L1.2484472,13 L2.79503106,9.12184874 L9.20496894,9.12184874 L10.7515528,13 L12,13 L6.67080745,0 L5.32919255,0 Z M3.16770186,8.17507003 L5.98136646,1.20168067 L6.03726708,1.20168067 L8.83229814,8.17507003 L3.16770186,8.17507003 Z" id="形状"></path>
+                            </g>
+                            <line x1="0.5" y1="15.5" x2="15.5" y2="15.5" id="直线-2" stroke="#FFFFFF" stroke-linecap="square"></line>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
