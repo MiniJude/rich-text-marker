@@ -1,6 +1,6 @@
 {
   "name": "rich-text-marker",
-  "version": "1.0.9",
+  "version": "1.0.18",
   "author": "Jude",
   "description": "vue3划词高亮组件",
   "homepage": "https://github.com/MiniJude/richTextMarker#readme",
@@ -10,7 +10,8 @@
   },
   "type": "module",
   "types": "./dist/index.d.ts",
-  "module": "./dist/index.es.js",
+  "main": "./dist/richTextMaker.js",
+  "module": "./dist/richTextMaker.js",
   "license": "ISC",
   "keywords": [
     "richtext",
