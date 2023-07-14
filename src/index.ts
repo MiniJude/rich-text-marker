@@ -1,2 +1,2 @@
 import Component from './index.vue'
-export { Component }
+export default Component
