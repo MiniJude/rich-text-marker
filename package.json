@@ -1,6 +1,6 @@
 {
   "name": "rich-text-marker",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "author": "Jude",
   "description": "vue3划词高亮组件",
   "homepage": "https://github.com/MiniJude/richTextMarker#readme",
