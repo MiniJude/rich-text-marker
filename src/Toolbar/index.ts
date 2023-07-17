@@ -27,13 +27,12 @@ class Toolbar {
     }
     return Toolbar.instance
   }
-  private handleOutsideClick = (event: MouseEvent, resolve: (ags?: any) => any, reject: (ags?: any) => any): void => {
+  private handleOutsideClick = (event: MouseEvent, reject: (ags?: any) => any): void => {
     const isClickedOutside = !this.toolbarElement.contains(event.target as Node)
     if (isClickedOutside) {
-      this.close()
-      reject()
+      reject('you clicked outside the toolbar')
     } else {
-      resolve()
+      reject('you clicked inside the toolbar but not the item')
     }
   }
 
@@ -61,7 +60,7 @@ class Toolbar {
         }
       })
       // 添加点击事件监听器以处理点击工具条以外的区域
-      this.handleOutsideClickWrapper = (event: MouseEvent) => this.handleOutsideClick(event, resolve, reject)
+      this.handleOutsideClickWrapper = (event: MouseEvent) => this.handleOutsideClick(event, reject)
       document.addEventListener("click", this.handleOutsideClickWrapper)
     })
   }

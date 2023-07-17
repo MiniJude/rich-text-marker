@@ -10,7 +10,8 @@ import useClickOrSelect, { OperateTypeEnum } from '@/hooks/useClickOrSelect';
 import useRecords from '@/hooks/useRecords';
 import useSelection from '@/hooks/useSelection';
 import Toolbar, { Config } from '@/Toolbar/index';
-import { uuid, clearCustomAttributes } from '@/utils/domUtils.ts'
+import { uuid, clearCustomAttributes } from '@/utils/vdom.ts'
+import type { Comment } from '@/types/index';
 const props = defineProps<{
     modelValue: string
 }>()
@@ -38,12 +39,16 @@ function handleMouseUp() {
 // 获取toolbar配置
 async function getToolbarConfig() {
     let config = [Config.m_underline, Config.m_comment]
-    let hasUnderline = await Selection.hasStatus('m_underline')
-    if (hasUnderline) {
-        // 如果值为true说明选区内有划线， 添加删除划线的选项
-        config.splice(1, 0, Config.d_underline)
+    try {
+        let hasUnderline = await Selection.hasStatus('m_underline')
+        if (hasUnderline) {
+            // 如果值为true说明选区内有划线， 添加删除划线的选项
+            config.splice(1, 0, Config.d_underline)
+        }
+        return config
+    } catch (error) {
+        throw new Error('get toolbar config failed:' + error)
     }
-    return config
 }
 
 // 计算工具条样式
@@ -65,7 +70,7 @@ function getToolbarPosition() {
 }
 
 async function handleSelect() {
-    console.log('handleSelect')
+    console.log('select')
     let isValid = await Selection.valid()
     if (!isValid) return
     Selection.tagRange() // 标记选区
@@ -75,23 +80,23 @@ async function handleSelect() {
             style: getToolbarPosition(),
             config
         })
-        console.log(textTypeName)
-        let key
+        console.log(textTypeName, Config)
+        let key, str
         switch (textTypeName) {
             case Config.m_underline:
-                await Selection.updateStrByClassName('m_underline')
+                str = await Selection.updateStrByClassName('m_underline')
                 break
             case Config.m_comment:
                 // 生成唯一comment-id-xxx,
                 key = 'm_comment-id-' + uuid()
-                await Selection.updateStrByClassName(key)
+                str = await Selection.updateStrByClassName(key)
                 break
             case Config.d_underline:
-                await Selection.updateStrByClassName('d_underline')
+                str = await Selection.updateStrByClassName('d_underline')
                 break
         }
         // 等待工具栏操作
-        emits('update:modelValue', Selection.richText.value)
+        Records.push(str as string)
         await nextTick()
         // key存在 及批注情况下暴露出批注的title
         if (key) {
@@ -100,16 +105,14 @@ async function handleSelect() {
                 (prev, current) => prev + current.innerHTML,
                 ''
             )
-            emits('takeComment', { key, title: title || '' } as Comment)
+            emits('takeComment', { key, title: title || '' })
         }
-        Records.push(Selection.richText.value)
-        Toolbar.close()
     } catch (error) {
-        console.log('取消：', error)
-        // 如果取消，纯操作dom来清空自定义标记属性
+        console.log(error)
+        // clear custom attributes when error or cancel
         clearCustomAttributes(containerRef.value)
-        Toolbar.close()
     }
+    Toolbar.close()
 }
 function handleClick() {
     console.log('click')
@@ -118,37 +121,37 @@ function handleClick() {
 
 <style lang="less">
 .m_underline {
-  border-bottom: 2px solid blue;
+    border-bottom: 2px solid blue;
 }
 
 [class*='m_comment-id-'] {
-  background-color: #ccd7fa;
-  cursor: pointer;
+    background-color: #ccd7fa;
+    cursor: pointer;
 }
 </style>
 
 <style lang="less" scoped>
 .rich_text_marker {
-  position: relative;
-  display: inline-block;
-  vertical-align: text-top;
-  padding-right: 50px;
+    position: relative;
+    display: inline-block;
+    vertical-align: text-top;
+    padding-right: 50px;
 
-  p {
-    margin-bottom: 6px;
-  }
+    p {
+        margin-bottom: 6px;
+    }
 
-  &:hover .clear {
-    opacity: 1;
-  }
+    &:hover .clear {
+        opacity: 1;
+    }
 
-  .clear {
-    position: absolute;
-    top: 2px;
-    right: 10px;
-    cursor: pointer;
-    opacity: 0;
-    transition: all ease .3s;
-  }
+    .clear {
+        position: absolute;
+        top: 2px;
+        right: 10px;
+        cursor: pointer;
+        opacity: 0;
+        transition: all ease .3s;
+    }
 }
-</style>
+</style>@/utils/domV

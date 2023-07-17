@@ -13,7 +13,7 @@ import {
     uuid,
     isformulaNode,
     transferStr
-} from './domUtils'
+} from './vdom'
 export default function useDFS(tempStartOffset: number, tempEndOffset: number, className: string = 'm_underline') {
     let targetClassName = ''
     if (className.startsWith('d_')) targetClassName = className.replace('d_', 'm_')

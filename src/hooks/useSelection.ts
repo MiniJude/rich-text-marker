@@ -1,7 +1,7 @@
 import { computed, ref, Ref } from 'vue'
 import { type JSONContent, HTMLParser, JSONToHTML } from '@/utils/parser'
 import useDFS, { bfs } from '@/utils/useAst'
-import { hasAttrByNode, setAttrByNode, findFormulaNode } from '@/utils/domUtils'
+import { hasAttrByNode, setAttrByNode, findFormulaNode } from '@/utils/vdom'
 export default function useRichTextMarker(container: Ref<Element | undefined>) {
 
     const selection = ref<Selection | null>()
@@ -10,12 +10,6 @@ export default function useRichTextMarker(container: Ref<Element | undefined>) {
     const rect = computed(() => selection.value?.getRangeAt(0).getBoundingClientRect() ?? null)
 
     let tempStartOffset = 0, tempEndOffset = 0
-
-    let richText = ref('')
-    async function setRichText(str: string) {
-        console.log('setRichText')
-        richText.value = str
-    }
 
     // 判断选区是否合法
     async function valid() {
@@ -74,7 +68,6 @@ export default function useRichTextMarker(container: Ref<Element | undefined>) {
             // 如果右边界在这个img右侧， 注意：是同一个img
             if (endContainer.nodeName !== '#text' && isSameContainer && ((endOffset - startOffset) === 1)) {
                 setAttrByNode(endContainer.childNodes[startOffset] as HTMLElement, 'select_end')
-                richText.value = container.value!.innerHTML
                 return
             }
         }
@@ -111,7 +104,7 @@ export default function useRichTextMarker(container: Ref<Element | undefined>) {
         // 去掉父节点
         let l = str.indexOf('>') + 1
         let r = str.lastIndexOf('<')
-        richText.value = str.slice(l, r)
+        return str.slice(l, r)
     }
 
     // 判单选区内是否有某一类名的节点
@@ -197,8 +190,6 @@ export default function useRichTextMarker(container: Ref<Element | undefined>) {
         range,
         valid,
         tagRange,
-        richText,
-        setRichText,
         updateStrByClassName,
         hasStatus
     }
