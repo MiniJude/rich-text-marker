@@ -1,13 +1,17 @@
 import { HTMLAttributes } from "vue"
-export enum Config {
-  'm_underline' = '划线',
-  'd_underline' = '取消划线', // delete
-  'm_comment' = '写批注',
+export interface Config {
+  // 'm_underline' = '划线',
+  // 'd_underline' = '取消划线', // delete
+  // 'm_comment' = '写批注',
+
+  label: string
+  isShow: boolean | (() => boolean | Promise<boolean>)
+  executeFn: () => void
 }
 
 export interface Options {
   style: HTMLAttributes['style'],
-  config?: Config[]
+  config: Config[]
 }
 
 class Toolbar {
@@ -38,15 +42,15 @@ class Toolbar {
 
   private handleOutsideClickWrapper: null | ((event: MouseEvent) => void) = null
 
-  public show(parentEle: HTMLElement, { style, config = [Config.m_underline, Config.m_comment] }: Options): Promise<Config> {
+  public show(parentEle: HTMLElement, { style, config }: Options): Promise<string> {
     this.toolbarElement.style.display = "flex"
     // 设置工具条位置
     Object.assign(this.toolbarElement.style, style)
     // 设置工具条选项
     this.toolbarElement.innerHTML = config.reduce((prev, curr) => {
       return prev + `<span class="rich_text_marker__toolbar__item">
-        <img src="${new URL(`../assets/img/${curr}.svg`, import.meta.url)}">
-        <span>${curr}</span>
+        <img src="${new URL(`../assets/img/${curr.label}.svg`, import.meta.url)}">
+        <span>${curr.label}</span>
       </span>`
     }, '')
     parentEle.appendChild(this.toolbarElement)
@@ -56,7 +60,7 @@ class Toolbar {
         const target = e.target as HTMLElement
         let toolbarItem = target.closest('.rich_text_marker__toolbar__item') as HTMLElement
         if (toolbarItem) {
-          resolve(toolbarItem.innerText as Config)
+          resolve(toolbarItem.innerText)
         }
       })
       // 添加点击事件监听器以处理点击工具条以外的区域

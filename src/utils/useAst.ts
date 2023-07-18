@@ -1,4 +1,5 @@
 import { HTMLParser, JSONToHTML, JSONContent, DataSetString } from './parser'
+import { uuid } from './common'
 import {
     hasAttrByNode,
     hasStatusByNode,
@@ -10,10 +11,9 @@ import {
     deleteStatusByNodeLeftIndex,
     deleteStatusByNodeRightIndex,
     deleteStatusByNodeLeftAndRightIndex,
-    uuid,
-    isformulaNode,
-    transferStr
+    isformulaNode
 } from './vdom'
+import { transferStr } from './dom'
 export default function useDFS(tempStartOffset: number, tempEndOffset: number, className: string = 'm_underline') {
     let targetClassName = ''
     if (className.startsWith('d_')) targetClassName = className.replace('d_', 'm_')

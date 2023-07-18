@@ -1,7 +1,8 @@
 import { computed, ref, Ref } from 'vue'
 import { type JSONContent, HTMLParser, JSONToHTML } from '@/utils/parser'
 import useDFS, { bfs } from '@/utils/useAst'
-import { hasAttrByNode, setAttrByNode, findFormulaNode } from '@/utils/vdom'
+import { hasAttrByNode, findFormulaNode } from '@/utils/vdom'
+import { setAttrByNode } from '@/utils/dom'
 export default function useRichTextMarker(container: Ref<Element | undefined>) {
 
     const selection = ref<Selection | null>()
@@ -109,7 +110,7 @@ export default function useRichTextMarker(container: Ref<Element | undefined>) {
 
     // 判单选区内是否有某一类名的节点
     async function hasStatus(className: string) {
-        if (!range.value || !container.value) return
+        if (!range.value || !container.value) return false
         let tree = await HTMLParser(container.value)
         let lock = true
         const fn = (root: any) => {

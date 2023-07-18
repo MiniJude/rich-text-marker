@@ -48,12 +48,12 @@
   
   const richTextMarkerRef = ref<InstanceType<typeof RichTextMarker>>()
   
-  type Comment = {
+  type CommentModel = {
     key: string
     title: string
   }
-  const list = ref<Comment[]>([])
-  function handleTakeComment(comment: Comment) {
+  const list = ref<CommentModel[]>([])
+  function handleTakeComment(comment: CommentModel) {
     console.log(comment)
     list.value.unshift(comment)
   }

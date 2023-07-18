@@ -5,7 +5,7 @@ export enum SelectionBoundaryEnum {
 }
 
 // 评论
-export interface Comment {
+export interface CommentModel {
     key: string
     title: string // 选中的html内容
 }
