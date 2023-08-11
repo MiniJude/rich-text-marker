@@ -90,7 +90,12 @@ export default function useDFS(tempStartOffset: number, tempEndOffset: number, c
                     }
                 } else {
                     // 否则添加新的状态
-                    addStatusByNodeLeftAndRightIndex(parent, className, tempStartOffset, tempEndOffset)
+                    if (type === 'text') {
+                        addStatusByNodeLeftAndRightIndex(parent, className, tempStartOffset, tempEndOffset)
+                    }
+                    if (type === 'img' || isformulaNode(root)) {
+                        addStatusByNode(parent, className)
+                    }
                 }
             }
             return
@@ -147,7 +152,12 @@ export default function useDFS(tempStartOffset: number, tempEndOffset: number, c
                     }
                 } else {
                     // 否则添加新的状态
-                    addStatusByNodeLeftIndex(parent, className, tempStartOffset)
+                    if (type === 'text') {
+                        addStatusByNodeLeftIndex(parent, className, tempStartOffset)
+                    }
+                    if (type === 'img' || isformulaNode(root)) {
+                        addStatusByNode(parent, className)
+                    }
                 }
             }
             lock = true
@@ -202,7 +212,12 @@ export default function useDFS(tempStartOffset: number, tempEndOffset: number, c
                     }
                 } else {
                     // 否则添加新的状态
-                    addStatusByNodeRightIndex(parent, className, tempEndOffset)
+                    if (type === 'text') {
+                        addStatusByNodeRightIndex(parent, className, tempEndOffset)
+                    }
+                    if (type === 'img' || isformulaNode(root)) {
+                        addStatusByNode(parent, className)
+                    }
                 }
             }
             lock = false
