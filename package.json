@@ -28,7 +28,7 @@
     "url": "https://github.com/MiniJude/richTextMarker/issues"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview"
   },
