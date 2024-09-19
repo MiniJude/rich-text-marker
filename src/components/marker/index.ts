@@ -1,6 +1,6 @@
 import { DEFAULT_Mark_CLASS_PREFIX, DEFAULT_UNDERLINE_CLASS_NAME, MOUSEUP_TIME_DIVIDE } from "@/utils/constant.ts";
 import { MarkerSelection } from "../marker-selection";
-import { EventEmitter } from "@/utils/eventEmitter";
+import { EventEmitter } from "../../utils/eventEmitter";
 import Toolbar from "../toolbar";
 import { uuid } from "@/utils/uuid";
 import { JsonToHtml, htmlToJson } from "@/utils/parser";
