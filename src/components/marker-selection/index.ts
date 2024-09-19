@@ -1,4 +1,4 @@
-import { MarkerOptions } from "../marker/index";
+import { MarkerOptions } from "@/components/marker/index";
 import { HEAD_TAG_STRING, TAIL_TAG_STRING } from "@/utils/constant";
 import { bfs } from "@/utils/vdom";
 import { JSONContent, JsonToHtml, htmlToJson } from "@/utils/parser";

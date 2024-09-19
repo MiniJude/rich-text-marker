@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
+import * as path from "path";
 
 export default defineConfig({
     plugins: [dts()],
@@ -10,10 +11,7 @@ export default defineConfig({
             fileName: (format) => `richTextMarker.${format}.js`,
         },
     },
-    base: './',
     resolve: {
-        alias: {
-            "@": "/src",
-        },
+        alias: [{ find: "@", replacement: path.resolve(__dirname, "src") }],
     },
 });
