@@ -1,17 +1,40 @@
 {
-  "name": "web-highlighter-clone",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "rich-text-marker",
+  "version": "2.0.1",
+  "author": "Jude",
+  "description": "划词高亮插件",
+  "homepage": "https://github.com/MiniJude/richTextMarker#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MiniJude/richTextMarker.git"
+  },
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/richTextMaker.js",
+  "module": "./dist/richTextMaker.js",
+  "license": "ISC",
+  "keywords": [
+    "richtext",
+    "marker",
+    "underline"
+  ],
+  "files": [
+    "dist",
+    "src",
+    "types",
+    "README.md"
+  ],
+  "bugs": {
+    "url": "https://github.com/MiniJude/richTextMarker/issues"
+  },
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "preview": "vite preview"
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
+    "vite": "^5.3.4",
     "jsmind": "^0.8.5",
-    "vite": "^5.3.4"
+    "vite-plugin-dts": "^3.9.1"
   }
 }

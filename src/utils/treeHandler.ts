@@ -5,7 +5,7 @@ import {
     addStatusByNodeLeftIndex,
     addStatusByNodeRightIndex,
 } from "./dom";
-import { JSONContent, htmlToJson } from "./parser";
+import { JSONContent } from "./parser";
 import { hasTags } from "./tags";
 import {
     deleteStatusByNode,

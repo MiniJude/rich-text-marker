@@ -272,7 +272,7 @@ export function deleteStatusByNodeRightIndex(params: {
     r: number;
     classesAsWhole: string[];
 }) {
-    const { node, status, r, classesAsWhole } = params;
+    const { node, r, classesAsWhole } = params;
 
     // 暂认为能走到这个函数，一定是需要一分为二的
     // node期望是text或者img，其父级一定有至少一个状态标注
