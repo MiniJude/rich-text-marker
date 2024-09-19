@@ -1,4 +1,2 @@
-import Component from './index.vue'
-export default Component
-export * from './types'
-export * from './utils/api'
+export * from "./components/marker/index";
+export * from "./components/toolbar/index";

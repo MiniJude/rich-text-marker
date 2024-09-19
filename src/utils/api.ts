@@ -1,10 +1,10 @@
-import { HTMLParser, JSONToHTML } from './parser'
-import { isOnlyOneClass, removeClass } from './vdom'
-import { bfs } from './useAst'
+import { bfs, isOnlyOneClass, removeClass } from "./vdom";
+import { JsonToHtml, htmlToJson } from "./parser";
+
 
 // 删除node中指定的class，如果删除后没有状态，则需要提升子节点
 export async function getHtmlStrByNeedRemovedKey(node: HTMLElement, classToRemove: string) {
-    let tree = await HTMLParser(node)
+    let tree = await htmlToJson(node)
     console.log(tree);
     const fn = (root: any) => {
         // 广度优先遍历
@@ -30,7 +30,7 @@ export async function getHtmlStrByNeedRemovedKey(node: HTMLElement, classToRemov
     }
     fn(tree)
     bfs(tree)
-    let str = await JSONToHTML(tree) as string
+    let str = await JsonToHtml(tree) as string
     // 去掉父节点
     let l = str.indexOf('>') + 1
     let r = str.lastIndexOf('<')
