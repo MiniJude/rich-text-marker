@@ -5,11 +5,78 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
         <link rel="stylesheet" href="src/style.css" />
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+            html,
+            body {
+                height: 100%;
+            }
+            .main {
+                display: flex;
+                height: 100%;
+            }
+
+            .main-left {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                border-right: 1px solid #5478ee;
+            }
+
+            #mk-list {
+                flex: 3;
+                border-top: 1px solid red;
+                padding: 100px;
+            }
+
+            #jsmind-container {
+                flex: 1;
+                padding: 16px;
+            }
+            #rich-text-marker {
+                flex: 1;
+                padding: 116px;
+            }
+            .remove-btn {
+                border-radius: 2px;
+                color: #fff;
+                padding: 0 2px;
+                background-color: gray;
+                cursor: pointer;
+            }
+        </style>
     </head>
     <body>
         <div class="main">
             <div class="main-left">
-                <div id="rich-text-marker">这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本这是一段普通文本</div>
+                <div id="rich-text-marker">
+                    <h1>this is a h1 tag</h1>
+                    <p>
+                        this is a p tag that contains a
+                        <strong>this a strong tag</strong>
+                        strong tag
+                    </p>
+                    <div>
+                        this is a div tag that contains an
+                        <a href="#">this is an a tag</a>
+                        a tag
+                    </div>
+                    <p>
+                        this is a div tag that contains an
+                        <img style="width: 30px;"
+                            src="https://p6-passport.byteacctimg.com/img/user-avatar/976aa386bacba0c2147e5a920bdfde5d~140x140.awebp"
+                            alt=""
+                        />
+                        img tag
+                    </p>
+                    <p>
+                        notice that do not support span tag, because span will be considered as a status(underline or
+                        marker) tag
+                    </p>
+                </div>
                 <div id="mk-list"></div>
             </div>
             <div id="jsmind-container"></div>
@@ -50,7 +117,7 @@
                 const ele = document.createElement("div");
                 ele.innerHTML = `
                         <span>${e.title}</span>
-                        <span class="remove-btn" data-id="${e.key}">x</span>
+                        <span class="remove-btn" data-id="${e.key}">remove</span>
                 `;
                 document.querySelector("#mk-list").appendChild(ele);
             });
