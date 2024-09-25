@@ -1,6 +1,6 @@
 {
   "name": "rich-text-marker",
-  "version": "2.0.2",
+  "version": "2.0.9",
   "author": "Jude",
   "description": "划词高亮插件",
   "homepage": "https://github.com/MiniJude/richTextMarker#readme",
@@ -10,18 +10,19 @@
   },
   "type": "module",
   "types": "./dist/index.d.ts",
-  "main": "./dist/richTextMaker.js",
-  "module": "./dist/richTextMaker.js",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
   "license": "ISC",
   "keywords": [
+    "typescript",
     "richtext",
     "marker",
-    "underline"
+    "underline",
+    "highlight"
   ],
   "files": [
     "dist",
-    "src",
-    "types",
+    "src/styles.css",
     "README.md"
   ],
   "bugs": {

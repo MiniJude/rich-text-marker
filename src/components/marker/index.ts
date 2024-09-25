@@ -105,10 +105,9 @@ export class Marker extends EventEmitter<EventHandlerMap> {
                 this.emit(EventType.DOM_UPDATE, { $root: this.$root }, e);
 
                 try {
-                    const { x: x1, y: y1 } = this.$root.getBoundingClientRect();
                     const { x: x2, y: y2, width } = markerSelection._selection?.getRangeAt(0).getBoundingClientRect()!;
                     let textTypeName = await Toolbar.show({
-                        style: { left: x2 - x1 + width / 2 + "px", top: y2 - y1 - 50 + "px" },
+                        style: { left: x2 + width / 2 + "px", top: y2 - 52 + scrollY + "px" },
                         config: toolbarConfig.filter((item) => {
                             if (item.isShow instanceof Function) {
                                 return item.isShow(markerSelection);
