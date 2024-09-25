@@ -6,6 +6,9 @@
 
 > 注意：该工具适用于富文本编辑器生成的富文本，不适用于任何 DOM 结构。
 
+[点击查看效果](https://www.awesomescreenshot.com/video/31905628?key=f27d1d829efbbc19598de26a6228d845)
+
+
 ## 安装
 
 ```bash
