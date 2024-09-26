@@ -8,7 +8,6 @@
 
 [点击查看效果](https://www.awesomescreenshot.com/video/31905628?key=f27d1d829efbbc19598de26a6228d845)
 
-
 ## 安装
 
 ```bash
@@ -23,28 +22,26 @@ npm install rich-text-marker
 
 ```html
 <div id="rich-text-container">
-    <div id="rich-text-marker">
-        <h1>这是一个 h1 标签</h1>
-        <p>
-            这是一个 p 标签，包含一个
-            <strong>这是一个 strong 标签</strong>
-            strong 标签
-        </p>
-        <div>
-            这是一个 div 标签，包含一个
-            <a href="#">这是一个 a 标签</a>
-            a 标签
-        </div>
-        <p>
-            这是一个 div 标签，包含一个
-            <img
-                src="https://p6-passport.byteacctimg.com/img/user-avatar/976aa386bacba0c2147e5a920bdfde5d~140x140.awebp"
-                alt=""
-            />
-            img 标签
-        </p>
-        <p>注意，不支持 span 标签，因为 span 会被视为一个状态（下划线或标记）标签</p>
+    <h1>这是一个 h1 标签</h1>
+    <p>
+        这是一个 p 标签，包含一个
+        <strong>这是一个 strong 标签</strong>
+        strong 标签
+    </p>
+    <div>
+        这是一个 div 标签，包含一个
+        <a href="#">这是一个 a 标签</a>
+        a 标签
     </div>
+    <p>
+        这是一个 div 标签，包含一个
+        <img
+            src="https://p6-passport.byteacctimg.com/img/user-avatar/976aa386bacba0c2147e5a920bdfde5d~140x140.awebp"
+            alt=""
+        />
+        img 标签
+    </p>
+    <p>注意，不支持 span 标签，因为 span 会被视为一个状态（下划线或标记）标签</p>
 </div>
 ```
 
@@ -101,4 +98,5 @@ interface MarkerEvent {
 ```
 
 ## 贡献
+
 欢迎提交 issue 和 PR。
